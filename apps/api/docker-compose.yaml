@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: bestwrist_postgres_db
+    image: postgres
+    restart: always
+    ports:
+      - 2010:5432
+    environment:
+      POSTGRES_USER: bestwrist
+      POSTGRES_PASSWORD: bestwrist
+      POSTGRES_DB: bestwrist
+    volumes:
+      - db_data_volume_bestwrist:/var/lib/postgresql/data
+
+volumes:
+  db_data_volume_bestwrist:
